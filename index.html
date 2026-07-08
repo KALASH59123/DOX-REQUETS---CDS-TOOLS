@@ -1,0 +1,339 @@
+CODE DU SITE (a copier puis coller sur n'importe quel viewer html tel que https://html.onlineviewer.net/ qui est trouvable sur un n'importe quel navigateur de recherche tel que Google) :
+
+
+
+
+
+
+
+
+
+CODE DU SITE :  
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOX_REQUEST (KSH v 1.0)</title>
+
+<style>
+
+:root{
+--main:#071d49;
+--accent:#0e5eff;
+--card:#10295f;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+
+background:linear-gradient(-45deg,#06142f,#0c2d75,#0a1f47,#1444b0);
+background-size:400% 400%;
+animation:bg 15s infinite;
+color:white;
+
+}
+
+@keyframes bg{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+header{
+
+padding:30px;
+text-align:center;
+font-size:35px;
+font-weight:bold;
+
+}
+
+.container{
+
+width:90%;
+max-width:700px;
+margin:auto;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:15px;
+
+}
+
+input,select,textarea{
+
+width:100%;
+margin-top:10px;
+margin-bottom:20px;
+padding:10px;
+border:none;
+border-radius:8px;
+
+}
+
+button{
+
+background:var(--accent);
+color:white;
+border:none;
+padding:15px;
+border-radius:10px;
+cursor:pointer;
+width:100%;
+
+}
+
+button:hover{
+
+opacity:.8;
+
+}
+
+.settings{
+
+margin-top:30px;
+
+}
+
+.cookie{
+
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#111;
+padding:20px;
+text-align:center;
+
+}
+
+.cookie button{
+
+width:auto;
+padding:10px 25px;
+
+}
+
+.disclaimer{
+
+background:#222;
+padding:15px;
+margin-bottom:20px;
+border-radius:10px;
+
+}
+
+.mobile .container{
+
+max-width:350px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+DOX_REQUEST (KSH v1.0) - Cartel Tools
+</header>
+
+<div class="container">
+
+<div class="disclaimer">
+⚠ Ce site permet l'ossint d'information du CDS grace a un opérateur performant"
+</div>
+
+<div class="card">
+
+<h2>Nouvelle demande de dox</h2>
+
+<label>Objet de la demande de dox</label>
+<input id="objet">
+
+<label>Nom + prénom de la personne recherchée (ex : Doe John)</label>
+<input id="personne">
+
+<label>Code (optionnel)</label>
+<input id="code">
+
+<label>Motif du dox et conséquence (veuillez renseigner un maximum d'informations sur la personne ainsi que ses identifiants sur des réseaux sociaux quelconques, son numéro de téléphone et bien autre, ceci reste optionel mais favorise la réponse rapide a la recherche)</label>
+<textarea id=""></textarea>
+
+<label>Opérateur sélectionné</label>
+
+<select id="operateur">
+
+<option>Kalash</option>
+<option>ScaredOP</option>
+<option>BloodyName</option>
+<option>RD_duCDS</option>
+<option>CarteldelSin_59</option>
+<option>ElMencho2.0</option>
+<option>doxxerdemes2</option>
+<option>Iwillkillu</option>
+<option>Autre</option>
+
+</select>
+
+<button onclick="envoyer()">
+Envoyer la demande
+</button>
+
+</div>
+
+<div class="card settings">
+
+<h2>Paramètres</h2>
+
+<label>Langue</label>
+
+<select onchange="langue(this.value)">
+<option value="fr">Français</option>
+<option value="en">English</option>
+</select>
+
+<label>Couleur</label>
+
+<input type="color" onchange="couleur(this.value)">
+
+<label>Version</label>
+
+<select onchange="version(this.value)">
+<option>PC</option>
+<option>Téléphone</option>
+</select>
+
+</div>
+
+</div>
+
+<div class="cookie" id="cookie">
+
+Ce site utilise des cookies.
+
+<br><br>
+
+<button onclick="accepterCookies()">
+Accepter (de toute facon t'a pas le choix)
+</button>
+
+</div>
+
+<script>
+
+function accepterCookies(){
+
+document.getElementById("cookie").style.display="none";
+
+}
+
+function couleur(c){
+
+document.documentElement.style.setProperty("--accent",c);
+
+}
+
+function version(v){
+
+if(v=="Téléphone")
+
+document.body.classList.add("mobile");
+
+else
+
+document.body.classList.remove("mobile");
+
+}
+
+function langue(l){
+
+if(l=="en"){
+
+document.querySelector("header").innerHTML="DOX_REQUEST(KSH)";
+document.querySelector("h2").innerHTML="New Request";
+
+}
+
+else{
+
+document.querySelector("header").innerHTML="DOX_REQUEST(KSH)";
+document.querySelector("h2").innerHTML="Nouvelle demande";
+
+}
+
+}
+
+function envoyer(){
+
+    let objet = document.getElementById("objet").value;
+    let personne = document.getElementById("personne").value;
+    let motif = document.getElementById("motif").value;
+    let code = document.getElementById("code").value;
+    let op = document.getElementById("operateur").value;
+
+    if(op === "Kalash"){
+
+        const sujet = encodeURIComponent(objet);
+
+        const corps = encodeURIComponent(
+`Bonjour,
+
+Une nouvelle demande de remise en contact a été envoyée.
+
+Objet :
+${objet}
+
+Personne recherchée :
+${personne}
+
+Motif :
+${motif}
+
+Code :
+${code === "" ? "Aucun" : code}
+
+---
+Message généré automatiquement par le site.`
+        );
+
+        window.open(
+`https://mail.google.com/mail/?view=cm&fs=1&to=lenyvanhille3282@gmail.com&su=${sujet}&body=${corps}`,
+"_blank"
+        );
+
+    } else {
+
+        alert("Votre demande a été enregistrée avec l'opérateur : " + op);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
