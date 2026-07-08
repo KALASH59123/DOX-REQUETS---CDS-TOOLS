@@ -1,4 +1,4 @@
-# DOX-REQUETS---CDS-TOOLS
+# DOX-REQUEST---CDS-TOOLS
 Only for CDS's members.
 # AVERTISSEMENT
 
